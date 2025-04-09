@@ -1,7 +1,7 @@
 {
     "name": "Release drafter",
     "description": "Create a release of a specific version of your repository.",
-    "iconName": "octicon check-circle",
+    "iconName": "octicon tag",
     "categories": [
         "Docker"
     ]

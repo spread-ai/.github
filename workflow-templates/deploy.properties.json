@@ -1,0 +1,8 @@
+{
+    "name": "Deploy",
+    "description": "After creating a Docker image to deploy your service and automatically patch its release version on Platform.",
+    "iconName": "octicon rocket",
+    "categories": [
+        "Docker"
+    ]
+}

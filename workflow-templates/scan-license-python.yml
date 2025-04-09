@@ -1,0 +1,15 @@
+name: Scan License
+
+on:
+  push:
+    branches:
+      - '**'
+
+permissions:
+  contents: read
+
+jobs:
+  scan-license:
+    name: Scan License
+    uses: spread-ai/github-workflows/.github/workflows/scan-python-license.yaml@main
+    secrets: inherit

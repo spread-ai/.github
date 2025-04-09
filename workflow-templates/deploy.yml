@@ -1,0 +1,16 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  docker:
+    name: TODO
+    description: Needs to be done depends on stack used.
+  release-notification:
+    uses: Spread-Studio-Apps/actions/.github/workflows/patch-platform.yml@main
+    needs: docker
+    secrets: inherit

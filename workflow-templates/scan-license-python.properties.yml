@@ -1,0 +1,8 @@
+{
+    "name": "Scan Python Licenses",
+    "description": "Scan licenses of your Python project's dependencies.",
+    "iconName": "octicon codescan",
+    "categories": [
+        "Docker"
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "name": "Scan Golang Licenses",
+    "description": "Scan licenses of your Golang project's dependencies.",
+    "iconName": "octicon codescan",
+    "categories": [
+        "Docker"
+    ]
+}

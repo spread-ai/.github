@@ -1,0 +1,17 @@
+name: Scan License
+
+on:
+  push:
+    branches:
+      - '**'
+
+permissions:
+  contents: read
+
+jobs:
+  scan-license:
+    name: Scan License
+    uses: spread-ai/github-workflows/.github/workflows/scan-go-license.yaml@main
+    secrets: inherit
+    with:
+      go-version: "1.22.x"

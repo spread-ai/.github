@@ -1,9 +1,9 @@
 name: Patch Service Version in Platform
 
 on:
-  push:
-    tags:
-      - "v*"
+  #push:
+  #  tags:
+  #    - "v*"
   workflow_dispatch:
     inputs:
       tag:
@@ -12,42 +12,5 @@ on:
 
 jobs:
   release-notification:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create GitHub App Token
-        id: app-token
-        uses: actions/create-github-app-token@v1
-        with:
-          app-id: ${{ vars.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
-          owner: spread-ai
-          repositories: platform
-
-      - name: Set Parameters
-        id: set-parameters
-        run: |
-          # NOTE: Apply a custom value here in case service name in platform differs from the repo name.
-          app=${{ github.event.repository.name }}
-          echo "Setting app to \"${app}\"..."
-          echo "app=${app}" >> "$GITHUB_OUTPUT"
-          
-          if [ -n "${{ github.ref_name }}" ]; then
-            tag=${{ github.ref_name }}
-            echo "Setting tag from event to \"${tag}\"."
-          fi
-          if [ -n "${{ github.event.inputs.tag }}" ]; then
-            tag=${{ github.event.inputs.tag }}
-            echo "Setting tag from input to \"${tag}\"."
-          fi
-          # Sanitize tag in case it's a semver tag.
-          tag=$(echo ${tag} | sed -E 's/^v([0-9]+\.[0-9]+\.[0-9]+)$/\1/')
-          echo "Sanitized tag to \"${tag}\"."
-          echo "tag=${tag}" >> "$GITHUB_OUTPUT"
-
-      - name: Send Notification
-        uses: peter-evans/repository-dispatch@v3
-        with:
-          token: ${{ steps.app-token.outputs.token }}
-          repository: spread-ai/platform
-          event-type: service-release
-          client-payload: '{ "app": "${{ steps.set-parameters.outputs.app }}", "tag": "${{ steps.set-parameters.outputs.tag }}" }'
+    uses: spread-ai/github-workflows/.github/workflows/patch-platform.yaml@main
+    secrets: inherit

@@ -1,0 +1,8 @@
+{
+    "name": "Scan Rust Licenses",
+    "description": "Scan licenses of your Rust project's dependencies.",
+    "iconName": "octicon codescan",
+    "categories": [
+        "Docker"
+    ]
+}

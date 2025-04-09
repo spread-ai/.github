@@ -1,7 +1,7 @@
 {
     "name": "Patch Platform",
-    "description": "Automatically patch a release version of your service on Platform.",
-    "iconName": "octicon hubot",
+    "description": "Patch a release version of your service on Platform automatically or on demand.",
+    "iconName": "octicon pencil",
     "categories": [
         "Docker"
     ]
